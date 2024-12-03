@@ -6,3 +6,4 @@ node_modules
 
 ## GraphQL Codegen
 src/gql/*
+*storybook.log
