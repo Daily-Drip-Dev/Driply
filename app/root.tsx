@@ -5,6 +5,7 @@ import { ApolloProvider } from "@apollo/client/index.js";
 import apolloClient from "src/apollo/client";
 
 import styles from "./index.css?url";
+import { getCssText } from "src/stitches";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -28,6 +29,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
       </head>
       <body>
         {children}
