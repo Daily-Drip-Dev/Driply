@@ -1,4 +1,4 @@
-import { createStitches } from "@stitches/react";
+import { createStitches, globalCss } from "@stitches/react";
 
 export const { styled, css, getCssText } = createStitches({
   theme: {
@@ -19,5 +19,52 @@ export const { styled, css, getCssText } = createStitches({
       warmGray900: "#2E2923",
       warmGray950: "#12100E",
     },
+  },
+});
+
+export const globalStyles = globalCss({
+  body: {
+    fontFamily: "Noto Sans KR, sans-serif",
+    color: "$black",
+  },
+  "h1, .heading1": {
+    fontSize: "32px",
+    lineHeight: "140%",
+    fontWeight: 900,
+  },
+  "h2, .heading2": {
+    fontSize: "26px",
+    lineHeight: "130%",
+    fontWeight: 700,
+  },
+  "h3, .heading3": {
+    fontSize: "22px",
+    lineHeight: "120%",
+    fontWeight: 500,
+  },
+  "h4, .heading4": {
+    fontSize: "20px",
+    lineHeight: "130%",
+    fontWeight: 500,
+  },
+  "h5, .heading5": {
+    fontSize: "18px",
+    lineHeight: "130%",
+    fontWeight: 500,
+  },
+  "p, .font-base": {
+    fontSize: "16px",
+    lineHeight: "130%",
+    fontWeight: 400,
+  },
+  ".font-small": {
+    fontSize: "14px",
+    lineHeight: "130%",
+    fontWeight: 400,
+  },
+  ".font-xsmall": {
+    fontSize: "12px",
+    lineHeight: "130%",
+    fontWeight: 400,
   },
 });
