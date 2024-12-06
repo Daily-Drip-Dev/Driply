@@ -1,5 +1,6 @@
 import { ImgHTMLAttributes } from "react";
 import S from "./style";
+import { BiSolidError } from "react-icons/bi";
 
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   isLoading?: boolean;
@@ -7,5 +8,5 @@ interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export default function Image(props: ImageProps) {
-  return props.isError ? <S.Image {...props} alt="props" /> : null;
+  return props.isError ? <BiSolidError size={"50%"} /> : props.src ? <S.Image {...props} /> : null;
 }

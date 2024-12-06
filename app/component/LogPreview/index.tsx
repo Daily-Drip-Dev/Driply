@@ -5,7 +5,7 @@ import Image from "../Image";
 interface LogPreviewProps {
   place: string;
   title: string;
-  imageUrl: string;
+  imageUrl?: string;
 }
 
 export default function LogPreview({ place, title, imageUrl }: LogPreviewProps) {

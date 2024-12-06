@@ -53,6 +53,5 @@ export const NoImage: Story = {
   args: {
     place: "홈 카페",
     title: "진짜 맛있게 내린 홈 브루잉 커피",
-    imageUrl: "",
   },
 };
