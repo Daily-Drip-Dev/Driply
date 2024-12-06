@@ -7,6 +7,9 @@ interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   isError?: boolean;
 }
 
-export default function Image(props: ImageProps) {
-  return props.isError ? <BiSolidError size={"50%"} /> : props.src ? <S.Image {...props} /> : null;
+export default function Image({ isError, ...props }: ImageProps) {
+  if (isError) {
+    return <BiSolidError size={"50%"} />;
+  }
+  return props.src ? <S.Image {...props} /> : null;
 }
