@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/react";
+import { globalStyles } from "../src/stitches";
+import React from "react";
 
 const preview: Preview = {
   parameters: {
@@ -9,6 +11,12 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (Stroy) => {
+      globalStyles();
+      return <Stroy />;
+    },
+  ],
 };
 
 export default preview;
