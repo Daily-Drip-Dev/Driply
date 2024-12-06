@@ -5,7 +5,7 @@ import { ApolloProvider } from "@apollo/client/index.js";
 import apolloClient from "src/apollo/client";
 
 import styles from "./index.css?url";
-import { getCssText } from "src/stitches";
+import { getCssText, globalStyles } from "src/stitches";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -22,6 +22,7 @@ export const links: LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  globalStyles();
   return (
     <html lang="en">
       <head>
