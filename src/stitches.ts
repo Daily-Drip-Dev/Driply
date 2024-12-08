@@ -27,44 +27,77 @@ export const globalStyles = globalCss({
     fontFamily: "Noto Sans KR, sans-serif",
     color: "$black",
   },
-  "h1, .heading1": {
+  h1: {
     fontSize: "32px",
     lineHeight: "140%",
     fontWeight: 900,
   },
-  "h2, .heading2": {
+  h2: {
     fontSize: "26px",
     lineHeight: "130%",
     fontWeight: 700,
   },
-  "h3, .heading3": {
+  h3: {
     fontSize: "22px",
     lineHeight: "120%",
     fontWeight: 500,
   },
-  "h4, .heading4": {
+  h4: {
     fontSize: "20px",
     lineHeight: "130%",
     fontWeight: 500,
   },
-  "h5, .heading5": {
+  h5: {
     fontSize: "18px",
     lineHeight: "130%",
     fontWeight: 500,
   },
-  "p, .font-base": {
+  p: {
     fontSize: "16px",
     lineHeight: "130%",
     fontWeight: 400,
   },
-  ".font-small": {
+});
+
+export const font = {
+  heading1: css({
+    fontSize: "32px",
+    lineHeight: "140%",
+    fontWeight: 900,
+  }),
+  heading2: css({
+    fontSize: "26px",
+    lineHeight: "130%",
+    fontWeight: 700,
+  }),
+  heading3: css({
+    fontSize: "22px",
+    lineHeight: "120%",
+    fontWeight: 500,
+  }),
+  heading4: css({
+    fontSize: "20px",
+    lineHeight: "130%",
+    fontWeight: 500,
+  }),
+  heading5: css({
+    fontSize: "18px",
+    lineHeight: "130%",
+    fontWeight: 500,
+  }),
+  base: css({
+    fontSize: "16px",
+    lineHeight: "130%",
+    fontWeight: 400,
+  }),
+  small: css({
     fontSize: "14px",
     lineHeight: "130%",
     fontWeight: 400,
-  },
-  ".font-xsmall": {
+  }),
+  xSmall: css({
     fontSize: "12px",
     lineHeight: "130%",
     fontWeight: 400,
-  },
-});
+  }),
+};
