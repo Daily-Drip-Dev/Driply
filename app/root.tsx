@@ -30,7 +30,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
+        <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} suppressHydrationWarning />
       </head>
       <body>
         {children}

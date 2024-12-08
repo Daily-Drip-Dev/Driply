@@ -1,6 +1,6 @@
-import { createStitches, globalCss } from "@stitches/react";
+import { createStitches } from "@stitches/react";
 
-export const { styled, css, getCssText } = createStitches({
+export const { styled, css, getCssText, globalCss } = createStitches({
   theme: {
     colors: {
       primary: "#DE4B18",
