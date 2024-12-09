@@ -1,6 +1,8 @@
 import { useState } from "react";
-import S from "./style";
+import styles from "./styles.css";
 import Image from "../Image";
+import clsx from "clsx";
+import { typography } from "src/vanilla-extract/typography.css";
 
 interface LogPreviewProps {
   place: string;
@@ -13,12 +15,12 @@ export default function LogPreview({ place, title, imageUrl }: LogPreviewProps) 
   const [isError, setIsError] = useState(false);
 
   return (
-    <S.Container>
-      <S.InfoContainer>
-        <S.Place>{place}</S.Place>
-        <S.Title>{title}</S.Title>
-      </S.InfoContainer>
-      <S.ImageContainer>
+    <div className={styles.container}>
+      <div className={styles.infoContainer}>
+        <p className={clsx(styles.place, typography.small)}>{place}</p>
+        <h3>{title}</h3>
+      </div>
+      <div className={styles.imageContainer}>
         <Image
           src={imageUrl}
           isLoading={isLoading}
@@ -27,7 +29,7 @@ export default function LogPreview({ place, title, imageUrl }: LogPreviewProps) 
           onError={() => setIsError(true)}
           alt={`${title} 이미지`}
         />
-      </S.ImageContainer>
-    </S.Container>
+      </div>
+    </div>
   );
 }
