@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
-import { globalStyles } from "../src/stitches";
 import React from "react";
+import { defaultTheme } from "../src/vanilla-extract/theme.css";
+import "../src/vanilla-extract/globalStyles.css";
 
 const preview: Preview = {
   parameters: {
@@ -11,11 +12,13 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [
-    (Stroy) => {
-      globalStyles();
-      return <Stroy />;
-    },
+    (Story) => (
+      <div className={defaultTheme}>
+        <Story />
+      </div>
+    ),
   ],
 };
 
