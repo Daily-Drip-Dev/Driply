@@ -55,6 +55,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.11.1",
     "msw": "^2.6.8",
+    "msw-storybook-addon": "^2.0.4",
     "storybook": "^8.4.6",
     "typescript": "^5.7.2",
     "vite": "^5.1.0",
