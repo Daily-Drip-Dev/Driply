@@ -1,7 +1,6 @@
 import { globalStyle } from "@vanilla-extract/css";
 
 globalStyle("body", {
-  marginTop: "58px",
   fontFamily: "Noto Sans KR, sans-serif",
   color: "#12100E",
 });
