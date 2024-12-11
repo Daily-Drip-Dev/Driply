@@ -7,7 +7,6 @@ export const colors = createThemeContract({
     white: null,
   },
   warmGray: {
-    50: null,
     100: null,
     200: null,
     300: null,
@@ -17,7 +16,17 @@ export const colors = createThemeContract({
     700: null,
     800: null,
     900: null,
-    950: null,
+  },
+  blueScale: {
+    100: null,
+    200: null,
+    300: null,
+    400: null,
+    500: null,
+    600: null,
+    700: null,
+    800: null,
+    900: null,
   },
 });
 
@@ -28,7 +37,6 @@ export const defaultTheme = createTheme(colors, {
     white: "#F7F6F4",
   },
   warmGray: {
-    50: "#F7F6F4",
     100: "#EFEDEA",
     200: "#D9D5CE",
     300: "#C4BDB2",
@@ -38,6 +46,16 @@ export const defaultTheme = createTheme(colors, {
     700: "#655B4E",
     800: "#494238",
     900: "#2E2923",
-    950: "#12100E",
+  },
+  blueScale: {
+    100: "#D9E4ED",
+    200: "#B3C9DB",
+    300: "#8CADC8",
+    400: "#6692B6",
+    500: "#4077A4",
+    600: "#35658D",
+    700: "#2A5376",
+    800: "#204260",
+    900: "#153049",
   },
 });
