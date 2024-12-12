@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import HomeHeader from ".";
+import LogsHeader from ".";
 
-const meta: Meta<typeof HomeHeader> = {
-  title: "Components/HomeHeader",
-  component: HomeHeader,
+const meta: Meta<typeof LogsHeader> = {
+  title: "Components/LogsHeader",
+  component: LogsHeader,
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component: "HomeHeader 컴포넌트는 페이지 헤더로, 제목과 아이콘 버튼을 포함합니다.",
+        component: "LogsHeader 컴포넌트는 페이지 헤더로, 제목과 아이콘 버튼을 포함합니다.",
       },
     },
   },
