@@ -1,16 +1,29 @@
 import { gql } from "@apollo/client";
-import { Query } from "src/gql/graphql";
 
-export type GetCoffeeListResponse = Pick<Query, "coffeeCollection">;
+export type GetCoffeeListResponse = {
+  coffeeCollection: {
+    edges: {
+      node: {
+        id: string;
+        title: string;
+        score: string | null;
+        img_url: string | null;
+        created_at: string;
+      };
+    }[];
+  };
+};
 
-export const GET_COFFEE_LIST = gql`
-  query GetCoffeeList {
-    coffeeCollection {
+export const GET_COFFEE_LIST_BY_USER_ID = gql`
+  query GetCoffeeList($userId: BigInt!) {
+    coffeeCollection(filter: { user_id: { eq: $userId } }) {
       edges {
         node {
           id
-          name
-          description
+          title
+          score
+          img_url
+          created_at
         }
       }
     }

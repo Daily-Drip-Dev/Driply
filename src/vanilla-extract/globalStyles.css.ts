@@ -5,6 +5,10 @@ globalStyle("body", {
   color: "#12100E",
 });
 
+globalStyle("svg", {
+  verticalAlign: "middle",
+});
+
 globalStyle("h1", {
   fontSize: "32px",
   lineHeight: "140%",
