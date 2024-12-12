@@ -17,14 +17,19 @@ const handlers = [
       },
     ];
 
+    Math.floor(Math.random() * 10) < 5;
+
     return HttpResponse.json({
       data: {
         coffeeCollection: {
-          edges: Array.from({ length: 10 }, () => [...coffeeList])
-            .flatMap((v) => v)
-            .map((coffee, idx) => ({
-              node: { ...coffee, id: idx },
-            })),
+          edges:
+            Math.floor(Math.random() * 10) < 5
+              ? Array.from({ length: 10 }, () => [...coffeeList])
+                  .flatMap((v) => v)
+                  .map((coffee, idx) => ({
+                    node: { ...coffee, id: idx },
+                  }))
+              : [],
         },
       },
     });
