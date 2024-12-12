@@ -6,9 +6,16 @@ import styles from "./styles.css";
 import clsx from "clsx";
 import { typography } from "src/vanilla-extract/typography.css";
 
+import { useLoaderData } from "@remix-run/react";
+import { loader } from "~/routes/logs";
+
 export default function LogsMain() {
-  const { data } = useQuery<GetCoffeeListResponse>(GET_COFFEE_LIST_BY_USER_ID, { variables: { userId: 1 } });
-  const coffeeList = data?.coffeeCollection.edges.map(({ node }) => node);
+  const loaderData = useLoaderData<typeof loader>();
+  const { data } = useQuery<GetCoffeeListResponse>(GET_COFFEE_LIST_BY_USER_ID, {
+    variables: { userId: loaderData.userId },
+    skip: !!loaderData,
+  });
+  const coffeeList = (loaderData ?? data)?.coffeeCollection.edges.map(({ node }) => node);
 
   return (
     <>
