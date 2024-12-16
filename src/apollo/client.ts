@@ -46,6 +46,7 @@ const authLink = setContext(async (_, { headers }) => {
 
 const apolloClient = new ApolloClient({
   link: authLink.concat(httpLink),
+  ssrMode: true,
   cache,
 });
 

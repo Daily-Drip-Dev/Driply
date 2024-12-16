@@ -6,7 +6,7 @@ const button = style({
   color: colors.warmGray[100],
 
   borderRadius: "4px",
-  padding: "8px 12px",
+  padding: "12px 8px",
 });
 
 const highlight = style({
