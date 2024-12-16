@@ -6,8 +6,8 @@
     "**/.server/**/*.tsx",
     "**/.client/**/*.ts",
     "**/.client/**/*.tsx",
-    "src/apollo/client.js"
-    // "styled-system"
+    "src/apollo/client.js",
+    "src/supabase/client.js" // "styled-system"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
