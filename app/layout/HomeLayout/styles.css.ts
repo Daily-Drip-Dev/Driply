@@ -2,8 +2,6 @@ import { style } from "@vanilla-extract/css";
 import { colors } from "src/vanilla-extract/theme.css";
 
 const homeMain = style({
-  position: "relative",
-
   display: "flex",
   flexDirection: "column",
   gap: "20px",
@@ -59,6 +57,7 @@ const kakaoButton = style({
 const kakaoText = style({
   textAlign: "center",
   flex: "1",
+  whiteSpace: "nowrap",
 });
 
 const styles = { homeMain, logoContainer, logo, buttonContainer, buttonDescription, kakaoButton, kakaoText };
