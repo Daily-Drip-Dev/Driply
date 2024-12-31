@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import HomeLayout from "~/layout/HomeLayout";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,5 +18,5 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-  return <div>Daily Drip Home Route</div>;
+  return <HomeLayout />;
 }
