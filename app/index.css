@@ -109,7 +109,7 @@ body {
   line-height: 1.5;
   background-color: #fff; /* 기본 배경색 */
   color: #333; /* 기본 텍스트 색상 */
-  font-family: Arial, sans-serif; /* 기본 폰트 */
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* 리스트 스타일 제거 */
