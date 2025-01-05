@@ -1,25 +1,22 @@
-import {
-  createServerClient,
-  parseCookieHeader,
-  serializeCookieHeader,
-} from '@supabase/ssr';
+import { createServerClient, parseCookieHeader, serializeCookieHeader } from '@supabase/ssr';
 import { SUPABASE } from './constants';
-import { LoaderFunctionArgs } from '@remix-run/node';
 
-const supabaseServer = (request: LoaderFunctionArgs['request']) => {
-  const headers = new Headers();
+export interface SupabaseServerArgs {
+  request: Request;
+  headers?: Headers;
+}
+
+const supabaseServer = (args: SupabaseServerArgs) => {
+  const headers = args.headers ?? new Headers();
 
   return createServerClient(SUPABASE.url, SUPABASE.anonKey, {
     cookies: {
       getAll() {
-        return parseCookieHeader(request.headers.get('Cookie') ?? '');
+        return parseCookieHeader(args.request.headers.get('Cookie') ?? '');
       },
       setAll(cookiesToSet) {
         cookiesToSet.forEach(({ name, value, options }) =>
-          headers.append(
-            'Set-Cookie',
-            serializeCookieHeader(name, value, options)
-          )
+          headers.append('Set-Cookie', serializeCookieHeader(name, value, options))
         );
       },
     },
