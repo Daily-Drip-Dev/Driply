@@ -1,12 +1,18 @@
-import { typography } from "src/vanilla-extract/typography.css";
-import styles from "./styles.css";
-import clsx from "clsx";
+import { typography } from 'src/vanilla-extract/typography.css';
+import styles from './styles.css';
+import clsx from 'clsx';
+import supabase from 'src/supabase/client';
 
 export default function HomeLayout() {
-  const handleKakaoClick = () => {
-    // TODO: 카카오 로그인 연결
-    alert("TODO: 카카오 로그인 연결");
+  const handleKakaoClick = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: 'kakao',
+      options: {
+        redirectTo: `${window.location.origin}/logs`,
+      },
+    });
   };
+
   return (
     <main className={styles.homeMain}>
       <div className={styles.logoContainer}>
