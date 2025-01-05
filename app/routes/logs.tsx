@@ -12,8 +12,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
   } = await supabase.auth.getUser();
   const userId = user?.id;
 
-  // console.log(user);
-
   const {
     data: { coffeeCollection },
   } = await apolloClient.query<GetCoffeeListResponse>({
