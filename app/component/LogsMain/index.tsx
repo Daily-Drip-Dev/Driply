@@ -8,8 +8,8 @@ import { useLoaderData } from '@remix-run/react';
 import { loader } from '~/routes/logs';
 
 export default function LogsMain() {
-  const loaderData = useLoaderData<typeof loader>();
-  const coffeeList = loaderData?.coffeeCollection.edges.map(({ node }) => node);
+  const { coffeeCollection } = useLoaderData<typeof loader>();
+  const coffeeList = coffeeCollection.edges.map(({ node }) => node);
 
   return (
     <>

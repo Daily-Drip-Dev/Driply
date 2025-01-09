@@ -8,7 +8,7 @@ export default function HomeLayout() {
     await supabase.auth.signInWithOAuth({
       provider: 'kakao',
       options: {
-        redirectTo: `${window.location.origin}/logs`,
+        redirectTo: `${window.location.origin}/authCallback`,
       },
     });
   };
