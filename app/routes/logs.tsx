@@ -19,7 +19,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     variables: { userId },
   });
 
-  return { userId, coffeeCollection };
+  return { coffeeCollection };
 }
 
 export default function Logs() {
