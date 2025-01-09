@@ -5,7 +5,7 @@ import { LoaderFunctionArgs } from '@remix-run/node';
 import supabaseServer from 'src/supabase/server';
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  const supabase = supabaseServer(request);
+  const supabase = supabaseServer({ request });
 
   const {
     data: { user },
