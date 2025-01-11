@@ -15,7 +15,7 @@ export type GetCoffeeListResponse = {
 };
 
 export const GET_COFFEE_LIST_BY_USER_ID = gql`
-  query GetCoffeeList($userId: BigInt!) {
+  query GetCoffeeList($userId: UUID!) {
     coffeeCollection(filter: { user_id: { eq: $userId } }) {
       edges {
         node {

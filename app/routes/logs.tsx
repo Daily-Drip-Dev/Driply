@@ -11,12 +11,18 @@ export async function loader({ request }: LoaderFunctionArgs) {
     data: { user },
   } = await supabase.auth.getUser();
   const userId = user?.id;
+  const token = user?.user_metadata.access_token;
 
   const {
     data: { coffeeCollection },
   } = await apolloClient.query<GetCoffeeListResponse>({
     query: GET_COFFEE_LIST_BY_USER_ID,
     variables: { userId },
+    context: {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
   });
 
   return { coffeeCollection };
