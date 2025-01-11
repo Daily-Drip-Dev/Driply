@@ -32,14 +32,14 @@ const httpLink = createHttpLink({
   uri: `${import.meta.env.VITE_SUPABASE_URL}/graphql/v1`,
 });
 
-const authLink = setContext(async (_, { headers }) => {
+const authLink = setContext(async (_, { headers, Authorization }) => {
   const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
 
   return {
     headers: {
       ...headers,
       apikey: SUPABASE_KEY,
-      Authorization: `Bearer ${SUPABASE_KEY}`,
+      Authorization: Authorization || `Bearer ${SUPABASE_KEY}`,
     },
   };
 });
