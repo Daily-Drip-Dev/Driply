@@ -15,7 +15,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
       const searchParams = new URLSearchParams({
         errorMessage: error.message,
       });
-      return redirect(`/${searchParams.toString()}`);
+      return redirect(`/?${searchParams.toString()}`);
     }
     return redirect(next, { headers });
   }
@@ -23,7 +23,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const searchParams = new URLSearchParams({
     errorMessage: '인증 과정에 문제가 발생했습니다.',
   });
-  return redirect(`/${searchParams.toString()}`);
+  return redirect(`/?${searchParams.toString()}`);
 }
 
 export default function AuthCallback() {
