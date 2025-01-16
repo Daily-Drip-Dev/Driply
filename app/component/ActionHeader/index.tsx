@@ -11,7 +11,7 @@ interface ActionHeaderProps {
   children: React.ReactNode;
 }
 
-function ActionHeaderBase({ onBack, children }: ActionHeaderProps) {
+function ActionHeader({ onBack, children }: ActionHeaderProps) {
   const centerContent = React.Children.toArray(children).find(
     (child: any) => child?.type?.displayName === CENTER_CONTENT_NAME
   );
@@ -41,9 +41,7 @@ function RightContent({ children }: PropsWithChildren) {
 }
 RightContent.displayName = RIGHT_CONTENT_NAME;
 
-const ActionHeader = Object.assign(ActionHeaderBase, {
-  CenterContent,
-  RightContent,
-});
+ActionHeader.CenterContent = CenterContent;
+ActionHeader.RightContent = RightContent;
 
 export default ActionHeader;
