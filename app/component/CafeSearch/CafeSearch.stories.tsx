@@ -27,4 +27,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   name: '기본 상태',
+  args: {
+    onSearch: (data) => {
+      console.log(data);
+    },
+  },
 };

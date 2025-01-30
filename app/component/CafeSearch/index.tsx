@@ -7,7 +7,11 @@ import Loader from '../Loader';
 import ScrollObserver from '../ScrollObserver';
 import useKakaoCafeSearch from './useKakaoCafeSearch';
 
-export default function CafeSearch() {
+interface CafeSearchProps {
+  onSearch: (data: kakao.maps.services.PlacesSearchResultItem) => void;
+}
+
+export default function CafeSearch({ onSearch }: CafeSearchProps) {
   const { isLoading: isScriptLoading, kakaoPlace } = useKakaoMapsScript();
   const [searchValue, setSearchValue] = useState('');
   const rootRef = useRef<HTMLDivElement>(null);
@@ -48,10 +52,10 @@ export default function CafeSearch() {
           </div>
         ) : (
           searchData?.map((item) => (
-            <div key={`${item.id}-${searchValue}`} className={styles.cafeRow}>
+            <button key={`${item.id}-${searchValue}`} className={styles.cafeRow} onClick={() => onSearch(item)}>
               <div className={typography.heading5}>{item.place_name}</div>
               <div className={typography.small}>{item.address_name}</div>
-            </div>
+            </button>
           ))
         )}
 
