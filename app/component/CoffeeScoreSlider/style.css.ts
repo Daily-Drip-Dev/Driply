@@ -1,5 +1,6 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { colors } from 'src/vanilla-extract/theme.css';
+import { typography } from 'src/vanilla-extract/typography.css';
 
 export const scoreDialContainer = style({
   position: 'relative',
@@ -11,12 +12,25 @@ export const scoreDialContainer = style({
   width: '300px',
 });
 
+export const labelContainer = style({
+  width: '100%',
+  display: 'flex',
+  alignItems: 'flex-end',
+  gap: '3px',
+  marginBottom: '20px',
+  color: colors.warmGray[900],
+});
+
+export const labelDescription = style({
+  fontSize: typography.small,
+  color: colors.warmGray[700],
+});
+
 export const tuningScale = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'flex-end',
   width: '100%',
-  padding: '0 10px',
 });
 
 export const markContainer = style({
