@@ -3,7 +3,6 @@ import { colors } from 'src/vanilla-extract/theme.css';
 import { typography } from 'src/vanilla-extract/typography.css';
 
 export const scoreDialContainer = style({
-  position: 'relative',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -81,12 +80,25 @@ export const selectedNumber = style({
 
 export const rangeInput = style({
   position: 'absolute',
+  top: 0,
+  left: 0,
   width: '100%',
-  height: '100%',
-  appearance: 'none',
-  MozAppearance: 'none',
-  WebkitAppearance: 'none',
+  height: '64px',
+  zIndex: 1,
   background: 'transparent',
   opacity: 0,
   cursor: 'pointer',
+
+  selectors: {
+    '&::-webkit-slider-thumb': {
+      width: '36px',
+      height: '36px',
+      background: 'transparent',
+    },
+    '&::-moz-range-thumb': {
+      width: '36px',
+      height: '36px',
+      background: 'transparent',
+    },
+  },
 });
