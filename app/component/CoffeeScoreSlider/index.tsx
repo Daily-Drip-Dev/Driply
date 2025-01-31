@@ -32,7 +32,7 @@ export default function CoffeeScoreSlider({ sid }: CoffeeScoreSliderProps) {
         <span className={clsx(styles.labelDescription, typography.small)}>{sid[0].toUpperCase() + sid.slice(1)}</span>
       </div>
 
-      <div style={{ width: '100%', position: 'relative', height: '64px' }}>
+      <div style={{ width: '100%', position: 'relative' }}>
         <div className={styles.tuningScale}>
           {[...Array(11)].map((_, i) => {
             const size = i % 5 === 0 ? 'large' : 'small';
