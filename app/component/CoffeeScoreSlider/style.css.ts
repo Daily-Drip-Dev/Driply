@@ -83,10 +83,9 @@ export const rangeInput = style({
   top: 0,
   left: 0,
   width: '100%',
-  height: '64px',
   zIndex: 1,
   background: 'transparent',
-  opacity: 0,
+  // opacity: 0,
   cursor: 'pointer',
 
   selectors: {
