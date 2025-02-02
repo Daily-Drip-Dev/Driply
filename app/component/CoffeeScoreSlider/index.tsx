@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as styles from './style.css';
+import { styles } from './style.css';
 import clsx from 'clsx';
 import { typography } from 'src/vanilla-extract/typography.css';
 

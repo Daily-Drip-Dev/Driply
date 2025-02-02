@@ -2,7 +2,7 @@ import { style, styleVariants } from '@vanilla-extract/css';
 import { colors } from 'src/vanilla-extract/theme.css';
 import { typography } from 'src/vanilla-extract/typography.css';
 
-export const scoreDialContainer = style({
+const scoreDialContainer = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -11,7 +11,7 @@ export const scoreDialContainer = style({
   width: '300px',
 });
 
-export const labelContainer = style({
+const labelContainer = style({
   width: '100%',
   display: 'flex',
   alignItems: 'flex-end',
@@ -20,19 +20,19 @@ export const labelContainer = style({
   color: colors.warmGray[900],
 });
 
-export const labelDescription = style({
+const labelDescription = style({
   fontSize: typography.small,
   color: colors.warmGray[700],
 });
 
-export const tuningScale = style({
+const tuningScale = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'flex-end',
   width: '100%',
 });
 
-export const markContainer = style({
+const markContainer = style({
   position: 'relative',
   height: '62px',
   display: 'flex',
@@ -42,7 +42,7 @@ export const markContainer = style({
   textAlign: 'center',
 });
 
-export const pointer = style({
+const pointer = style({
   position: 'absolute',
   top: '-12px',
   left: '50%',
@@ -54,33 +54,33 @@ export const pointer = style({
   transform: 'translateX(-50%) rotate(180deg)',
 });
 
-export const markBase = style({
+const markBase = style({
   width: '2px',
   transition: 'background 0.2s',
 });
 
-export const mark = styleVariants({
+const mark = styleVariants({
   small: [markBase, { height: '24px', background: colors.warmGray[300], marginTop: '70%' }],
   large: [markBase, { height: '100%', width: '3px', marginTop: '0', backgroundColor: colors.warmGray[500] }],
 });
 
-export const selectedMark = style({
+const selectedMark = style({
   backgroundColor: colors.base.orange,
 });
 
-export const number = style({
+const number = style({
   fontSize: '14px',
   marginTop: '5px',
   color: colors.warmGray[400],
 });
 
-export const selectedNumber = style({
+const selectedNumber = style({
   color: colors.warmGray[900],
   transform: 'scale(1.2)',
   transition: 'transform 0.2s',
 });
 
-export const rangeInput = style({
+const rangeInput = style({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -104,3 +104,17 @@ export const rangeInput = style({
     },
   },
 });
+
+export const styles = {
+  scoreDialContainer,
+  labelContainer,
+  labelDescription,
+  tuningScale,
+  markContainer,
+  pointer,
+  mark,
+  selectedMark,
+  number,
+  selectedNumber,
+  rangeInput,
+};
