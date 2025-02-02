@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { typography } from 'src/vanilla-extract/typography.css';
 
 interface CoffeeScoreSliderProps {
-  sid: 'flavor' | 'sweetness' | 'acidity' | 'balance' | 'overall';
+  title: 'flavor' | 'sweetness' | 'acidity' | 'balance' | 'overall';
 }
 
 const TITLE = {
@@ -15,7 +15,7 @@ const TITLE = {
   overall: '종합',
 };
 
-export default function CoffeeScoreSlider({ sid }: CoffeeScoreSliderProps) {
+export default function CoffeeScoreSlider({ title }: CoffeeScoreSliderProps) {
   const [score, setScore] = useState(5);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,10 +26,12 @@ export default function CoffeeScoreSlider({ sid }: CoffeeScoreSliderProps) {
   return (
     <section className={styles.scoreDialContainer} aria-label="점수 선택기">
       <div className={styles.labelContainer}>
-        <label htmlFor={sid} className={typography.heading2}>
-          {TITLE[sid]}
+        <label htmlFor={title} className={typography.heading2}>
+          {TITLE[title]}
         </label>
-        <span className={clsx(styles.labelDescription, typography.small)}>{sid[0].toUpperCase() + sid.slice(1)}</span>
+        <span className={clsx(styles.labelDescription, typography.small)}>
+          {title[0].toUpperCase() + title.slice(1)}
+        </span>
       </div>
 
       <div style={{ width: '100%', position: 'relative' }}>
@@ -39,7 +41,7 @@ export default function CoffeeScoreSlider({ sid }: CoffeeScoreSliderProps) {
             return (
               <div key={i} className={styles.markContainer}>
                 {i === score && <div className={styles.pointer} />}
-                <div className={clsx(styles.mark[size], i === score && styles.selectedMark)} />
+                <div className={clsx(styles.mark[size], i <= score && styles.selectedMark)} />
                 <div className={clsx(styles.number, i === score && styles.selectedNumber)}>{i}</div>
               </div>
             );
@@ -51,7 +53,7 @@ export default function CoffeeScoreSlider({ sid }: CoffeeScoreSliderProps) {
           min="0"
           max="10"
           step="1"
-          id={sid}
+          id={title}
           value={score}
           onChange={handleChange}
           className={styles.rangeInput}
