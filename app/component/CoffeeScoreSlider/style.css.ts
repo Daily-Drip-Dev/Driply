@@ -76,6 +76,8 @@ export const number = style({
 
 export const selectedNumber = style({
   color: colors.warmGray[900],
+  transform: 'scale(1.2)',
+  transition: 'transform 0.2s',
 });
 
 export const rangeInput = style({
