@@ -21,5 +21,5 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   name: '기본 상태',
-  args: { sid: 'flavor' },
+  args: { title: 'flavor' },
 };
