@@ -10,7 +10,7 @@ interface ImageUploaderProps {
 }
 
 export default function ImageUploader({ maxCount, onChange, currentCount }: ImageUploaderProps) {
-  const disabled = currentCount === maxCount;
+  const disabled = currentCount >= maxCount;
   return (
     <div className={clsx(styles.container, disabled && styles.disabled)}>
       <MdOutlineCameraAlt className={styles.icon} />
