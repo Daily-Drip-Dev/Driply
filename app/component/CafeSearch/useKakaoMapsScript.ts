@@ -3,7 +3,10 @@ import { useEffect, useState } from 'react';
 let isImport = false;
 let kakaoPlace: kakao.maps.services.Places | null = null;
 
-export default function useKakaoMapsScript() {
+/**
+ * 해당 훅은 kakaoPlace를 싱글턴 인스턴스로 관리합니다.
+ */
+export default function useKakaoMapsInstance() {
   const [isLoading, setIsLoading] = useState(!isImport);
 
   useEffect(() => {

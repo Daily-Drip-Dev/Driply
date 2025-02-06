@@ -69,6 +69,9 @@ export default function useKakaoCafeSearch() {
     [page]
   );
 
+  /**
+   * useKakaoMapsScript에서 kakaoPlace를 불러올 수 있습니다.
+   */
   const fetchFirstSearchData = useCallback(
     (kakaoPlace: kakao.maps.services.Places, keyword: string) => {
       setPage(1);
@@ -92,6 +95,9 @@ export default function useKakaoCafeSearch() {
     [callbackFirstFetching]
   );
 
+  /**
+   * useKakaoMapsScript에서 kakaoPlace를 불러올 수 있습니다.
+   */
   const fetchNextSearchData = useCallback(
     (kakaoPlace: kakao.maps.services.Places, keyword: string) => {
       setIsSearchLoading(true);
