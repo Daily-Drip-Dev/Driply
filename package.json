@@ -58,6 +58,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.11.1",
+    "kakao.maps.d.ts": "^0.1.40",
     "msw": "^2.6.8",
     "msw-storybook-addon": "^2.0.4",
     "storybook": "^8.4.6",
