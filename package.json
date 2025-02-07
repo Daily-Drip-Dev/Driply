@@ -28,7 +28,8 @@
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^5.4.0"
+    "react-icons": "^5.4.0",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
@@ -58,6 +59,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.11.1",
+    "metro-react-native-babel-preset": "^0.77.0",
     "msw": "^2.6.8",
     "msw-storybook-addon": "^2.0.4",
     "storybook": "^8.4.6",
