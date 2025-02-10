@@ -36,7 +36,7 @@ export default function TextArea({
         {...rest}
       />
       {showCounter && maxLength && (
-        <span className={clsx(styles.counter, typography.small)}>
+        <span className={clsx(styles.counter, typography.xSmall)}>
           ({value ? value.length : 0}/{maxLength})
         </span>
       )}

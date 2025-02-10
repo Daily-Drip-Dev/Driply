@@ -1,6 +1,7 @@
 import { InputHTMLAttributes } from 'react';
 import styles from './styles.css';
 import clsx from 'clsx';
+import { typography } from 'src/vanilla-extract/typography.css';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string;
   showCounter?: boolean;
@@ -33,7 +34,7 @@ export default function Input({
         {...rest}
       />
       {showCounter && maxLength && (
-        <span className={styles.counter}>
+        <span className={clsx(styles.counter, typography.xSmall)}>
           ({value ? value.length : 0}/{maxLength})
         </span>
       )}
