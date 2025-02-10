@@ -14,11 +14,11 @@ interface CoffeeLogFormState {
 export const useCoffeeLogForm = create<CoffeeLogFormState>((set, get) => ({
   images: [],
   pushImages: (files) => {
-    const trsnsfiledFiles = files.map((file) => ({
+    const transformedFiles = files.map((file) => ({
       file,
       previewUrl: URL.createObjectURL(file),
     }));
-    set({ images: [...get().images, ...trsnsfiledFiles] });
+    set({ images: [...get().images, ...transformedFiles] });
   },
   deleteImage: (index) => {
     const curImages = get().images;

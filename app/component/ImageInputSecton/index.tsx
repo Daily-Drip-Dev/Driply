@@ -9,7 +9,7 @@ const MAX_IMAGE_COUNT = 3;
 export default function ImageInputSection() {
   const { images, pushImages, deleteImage } = useCoffeeLogForm();
 
-  const handleUploaderChagne = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleUploaderChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files) return;
     pushImages(Array.from(files).slice(0, MAX_IMAGE_COUNT - images.length));
@@ -17,7 +17,7 @@ export default function ImageInputSection() {
 
   return (
     <section aria-labelledby="image-section" className={styles.container}>
-      <ImageUploader maxCount={MAX_IMAGE_COUNT} onChange={handleUploaderChagne} currentCount={images.length} />
+      <ImageUploader maxCount={MAX_IMAGE_COUNT} onChange={handleUploaderChange} currentCount={images.length} />
 
       {images.map((image, index) => (
         <RemovableImageCard key={index} imageUrl={image.previewUrl} onRemove={() => deleteImage(index)} />
