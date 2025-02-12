@@ -1,0 +1,54 @@
+name: Deploy to Google Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GAR_LOCATION: asia-northeast3
+  SERVICE_NAME: driply # Cloud Run 서비스명
+  REGION: asia-northeast3 # Cloud Run 지역
+  REPO_NAME: cloud-run-source-deploy # Google Artifact Registry의 저장소 이름
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      # 1️⃣ 저장소 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Google Cloud 인증
+      - name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      # 3️⃣ Docker 빌드 & Google Artifact Registry(GAR) 로그인
+      - name: Configure Docker to use Google Artifact Registry
+        run: gcloud auth configure-docker $GAR_LOCATION-docker.pkg.dev
+
+      # 4️⃣ Docker 이미지 빌드 및 Google Artifact Registry로 푸시
+      - name: Build and Push Docker Image
+        run: |
+          IMAGE_NAME=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/$SERVICE_NAME:latest
+          docker build \
+            --build-arg VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }} \
+            --build-arg VITE_SUPABASE_KEY=${{ secrets.VITE_SUPABASE_KEY }} \
+            --build-arg VITE_KAKAO_JS_KEY=${{ secrets.VITE_KAKAO_JS_KEY }} \
+            -t $IMAGE_NAME .
+          docker push $IMAGE_NAME
+
+      # 5️⃣ Cloud Run 배포 트리거
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy $SERVICE_NAME \
+            --image $GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/$SERVICE_NAME:latest \
+            --platform managed \
+            --region $REGION \
+            --allow-unauthenticated
