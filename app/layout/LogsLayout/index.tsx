@@ -1,14 +1,16 @@
-import LogsHeader from "~/component/LogsHeader";
-import styles from "./styles.css";
-import LogsMain from "~/component/LogsMain";
+import LogsHeader from '~/component/LogsHeader';
+import styles from './styles.css';
+import LogsMain from '~/component/LogsMain';
+import { useNavigate } from '@remix-run/react';
 
 export default function LogsLayout() {
+  const navigate = useNavigate();
   return (
     <div className={styles.logsContainer}>
       <header className={styles.logsHeader}>
         <LogsHeader
           onIconClick={() => {
-            /*TODO: 헤더 오른쪽 아이콘 클릭 이벤트 작성 */
+            navigate('/logs/create');
           }}
         >
           My Logs
