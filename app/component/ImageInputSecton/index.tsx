@@ -39,10 +39,12 @@ export default function ImageInputSection() {
 }
 
 function Draggable({ imageUrl, id, onRemove }: { imageUrl: string; id: string; onRemove: () => void }) {
-  const { setNodeRef, transform, transition } = useSortable({ id });
+  const { setNodeRef, transform, transition, isDragging } = useSortable({ id });
   const style = {
     transform: CSS.Transform.toString(transform),
-    transition,
+    transition: `${transition}, box-shadow 0.2s ease`,
+    boxShadow: isDragging ? '0 10px 20px rgba(0, 0, 0, 0.5)' : 'none',
+    zIndex: isDragging ? '1' : '0',
   };
 
   return (

@@ -24,7 +24,7 @@ export const useCoffeeLogForm = create<CoffeeLogFormState>((set, get) => ({
   images: [],
   pushImages: (files) => {
     const transformedFiles = files.map((file) => ({
-      id: crypto.randomUUID(),
+      id: URL.createObjectURL(file),
       file,
       previewUrl: URL.createObjectURL(file),
     }));

@@ -1,5 +1,4 @@
 import styles from './styles.css';
-import Image from '../Image';
 import { MdClose } from 'react-icons/md';
 import { useSortable } from '@dnd-kit/sortable';
 
@@ -18,9 +17,12 @@ export default function SortableImageCard({ id, imageUrl, onRemove }: SortableIm
         <MdClose />
       </button>
 
-      <div className={styles.imageContainer} {...attributes} {...listeners}>
-        <Image src={imageUrl} alt="Removable" />
-      </div>
+      <div
+        className={styles.imageContainer}
+        {...attributes}
+        {...listeners}
+        style={{ backgroundImage: `url(${imageUrl})` }}
+      />
     </div>
   );
 }
