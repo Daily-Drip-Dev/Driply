@@ -1,0 +1,66 @@
+@layer reset, base, tokens, recipes, utilities;
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #12100e;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 140%;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 26px;
+  line-height: 130%;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 120%;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 130%;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 18px;
+  line-height: 130%;
+  font-weight: 500;
+}
+
+p {
+  font-size: 16px;
+  line-height: 130%;
+  font-weight: 400;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4bdb2;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #998d7b;
+}
