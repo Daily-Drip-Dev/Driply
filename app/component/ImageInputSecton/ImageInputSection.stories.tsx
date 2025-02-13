@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const ShortWidth: Story = {
-  decorators: (Story) => (
+  decorators: (Story: Story) => (
     <div style={{ width: '300px' }}>
       <Story />
     </div>

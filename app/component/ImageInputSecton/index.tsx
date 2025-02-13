@@ -1,7 +1,7 @@
 import styles from './styles.css';
 import { useCoffeeLogForm } from 'src/store/useCoffeeLogForm';
 import ImageUploader from '../ImageUploader';
-import RemovableImageCard from '../RemovableImage';
+import SortableImageCard from '../SortableImageCard';
 import { ChangeEvent } from 'react';
 import { DndContext, type DragMoveEvent } from '@dnd-kit/core';
 import { horizontalListSortingStrategy, SortableContext, useSortable } from '@dnd-kit/sortable';
@@ -25,9 +25,9 @@ export default function ImageInputSection() {
 
   return (
     <section aria-labelledby="image-section" className={styles.container}>
-      <ImageUploader maxCount={MAX_IMAGE_COUNT} onChange={handleUploaderChange} currentCount={images.length} />
-
       <DndContext onDragEnd={handleDragEnd}>
+        <ImageUploader maxCount={MAX_IMAGE_COUNT} onChange={handleUploaderChange} currentCount={images.length} />
+
         <SortableContext items={images} strategy={horizontalListSortingStrategy}>
           {images.map((image, index) => (
             <Draggable key={image.id} imageUrl={image.previewUrl} onRemove={() => deleteImage(index)} id={image.id} />
@@ -39,15 +39,15 @@ export default function ImageInputSection() {
 }
 
 function Draggable({ imageUrl, id, onRemove }: { imageUrl: string; id: string; onRemove: () => void }) {
-  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
+  const { setNodeRef, transform, transition } = useSortable({ id });
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
   };
 
   return (
-    <div ref={setNodeRef} {...attributes} {...listeners} style={style}>
-      <RemovableImageCard imageUrl={imageUrl} onRemove={onRemove} />
+    <div ref={setNodeRef} style={style}>
+      <SortableImageCard id={id} imageUrl={imageUrl} onRemove={onRemove} />
     </div>
   );
 }

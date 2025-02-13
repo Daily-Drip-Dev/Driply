@@ -29,6 +29,7 @@ const imageContainer = style({
 
   overflow: 'hidden',
   borderRadius: '2px',
+  cursor: 'grab',
 });
 
 const styles = {
