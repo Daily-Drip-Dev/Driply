@@ -46,7 +46,11 @@ export default function LogCreateLayout() {
       </ActionHeader>
       {/* TODO: 퍼널 */}
       <div className={styles.buttonContainer}>
-        <Button onClick={isLastStep ? handleSubmit : moveToNextStep} className={styles.button}>
+        <Button
+          onClick={isLastStep ? handleSubmit : moveToNextStep}
+          className={styles.button}
+          disabled={isLastStep && true}
+        >
           {isLastStep ? '완료' : '다음'}
         </Button>
       </div>
