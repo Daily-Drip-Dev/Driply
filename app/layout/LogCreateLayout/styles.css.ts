@@ -7,14 +7,5 @@ const container = style({
   justifyContent: 'space-between',
 });
 
-const buttonContainer = style({
-  padding: '4px 32px',
-  width: '100%',
-});
-
-const button = style({
-  width: '100%',
-});
-
-const styles = { container, buttonContainer, button };
+const styles = { container };
 export default styles;
