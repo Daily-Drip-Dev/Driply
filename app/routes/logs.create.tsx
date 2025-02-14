@@ -1,5 +1,5 @@
-import LogCreateFunnelLayout from '~/layout/LogCreateFunnelLayout';
+import LogCreateLayout from '~/layout/LogCreateLayout';
 
 export default function CreateLog() {
-  return <LogCreateFunnelLayout />;
+  return <LogCreateLayout />;
 }
