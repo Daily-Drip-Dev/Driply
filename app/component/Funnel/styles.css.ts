@@ -8,7 +8,7 @@ const stepContainer = style({
 });
 
 const buttonContainer = style({
-  padding: '4px 32px',
+  padding: '4px 32px 32px 32px',
   width: '100%',
 });
 

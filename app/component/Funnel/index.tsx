@@ -24,7 +24,7 @@ export function Funnel({ children, initialStep, steps, onSubmit, title }: Funnel
   };
 
   return (
-    <div>
+    <>
       <ActionHeader onBack={isFirstStep ? moveToPrevPage : moveToPrevStep}>
         <ActionHeader.CenterContent>{title}</ActionHeader.CenterContent>
       </ActionHeader>
@@ -36,7 +36,7 @@ export function Funnel({ children, initialStep, steps, onSubmit, title }: Funnel
           {isLastStep ? '완료' : '다음'}
         </Button>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -46,7 +46,7 @@ interface StepProps {
 }
 
 export function Step({ children }: StepProps) {
-  return <div className={styles.stepContainer}>{children}</div>;
+  return <section className={styles.stepContainer}>{children}</section>;
 }
 
 Funnel.Step = Step;
