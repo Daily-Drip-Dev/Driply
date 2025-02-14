@@ -45,9 +45,11 @@ export default function LogCreateLayout() {
         <ActionHeader.CenterContent>새 기록 작성</ActionHeader.CenterContent>
       </ActionHeader>
       {/* TODO: 퍼널 */}
-      <Button onClick={isLastStep ? handleSubmit : moveToNextStep} className={styles.button}>
-        {isLastStep ? '완료' : '다음'}
-      </Button>
+      <div className={styles.buttonContainer}>
+        <Button onClick={isLastStep ? handleSubmit : moveToNextStep} className={styles.button}>
+          {isLastStep ? '완료' : '다음'}
+        </Button>
+      </div>
     </div>
   );
 }
