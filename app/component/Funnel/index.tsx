@@ -10,9 +10,10 @@ interface FunnelProps {
   initialStep: string;
   steps: string[];
   onSubmit: (data: unknown) => void;
+  title: string;
 }
 
-export function Funnel({ children, initialStep, steps, onSubmit }: FunnelProps) {
+export function Funnel({ children, initialStep, steps, onSubmit, title }: FunnelProps) {
   const { currentStep, isFirstStep, isLastStep, moveToPrevStep, moveToNextStep } = useFunnel(initialStep, steps);
 
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export function Funnel({ children, initialStep, steps, onSubmit }: FunnelProps) 
   return (
     <div>
       <ActionHeader onBack={isFirstStep ? moveToPrevPage : moveToPrevStep}>
-        <ActionHeader.CenterContent>새 기록 작성</ActionHeader.CenterContent>
+        <ActionHeader.CenterContent>{title}</ActionHeader.CenterContent>
       </ActionHeader>
       {React.Children.map(children, (child) =>
         React.isValidElement(child) && child.props.name === currentStep ? child : null
