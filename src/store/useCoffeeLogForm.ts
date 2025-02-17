@@ -23,15 +23,19 @@ interface CoffeeLogFormState {
 export const useCoffeeLogForm = create<CoffeeLogFormState>((set, get) => ({
   images: [],
   pushImages: (files) => {
-    const transformedFiles = files.map((file) => ({
-      id: URL.createObjectURL(file),
-      file,
-      previewUrl: URL.createObjectURL(file),
-    }));
+    const transformedFiles = files.map((file) => {
+      const url = URL.createObjectURL(file);
+      return {
+        id: url,
+        file,
+        previewUrl: url,
+      };
+    });
     set({ images: [...get().images, ...transformedFiles] });
   },
   deleteImage: (index) => {
     const curImages = get().images;
+    URL.revokeObjectURL(curImages[index].previewUrl);
     set({ images: [...curImages.slice(0, index), ...curImages.slice(index + 1)] });
   },
   switchImageOrder: (currentId, targetId) => {
