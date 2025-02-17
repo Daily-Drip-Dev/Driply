@@ -2,18 +2,11 @@ import { useState } from 'react';
 import { styles } from './style.css';
 import clsx from 'clsx';
 import { typography } from 'src/vanilla-extract/typography.css';
+import { COFFEE_SCORE_TITLE } from 'src/constants';
 
 interface CoffeeScoreSliderProps {
-  title: 'flavor' | 'sweetness' | 'acidity' | 'balance' | 'overall';
+  title: keyof typeof COFFEE_SCORE_TITLE;
 }
-
-const TITLE = {
-  flavor: '향미',
-  sweetness: '단맛',
-  acidity: '산미',
-  balance: '밸런스',
-  overall: '종합',
-};
 
 export default function CoffeeScoreSlider({ title }: CoffeeScoreSliderProps) {
   const [score, setScore] = useState(5);
@@ -27,7 +20,7 @@ export default function CoffeeScoreSlider({ title }: CoffeeScoreSliderProps) {
     <section className={styles.scoreDialContainer} aria-label="점수 선택기">
       <div className={styles.labelContainer}>
         <label htmlFor={title} className={typography.heading2}>
-          {TITLE[title]}
+          {COFFEE_SCORE_TITLE[title]}
         </label>
         <span className={clsx(styles.labelDescription, typography.small)}>
           {title[0].toUpperCase() + title.slice(1)}
