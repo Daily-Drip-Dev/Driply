@@ -6,25 +6,23 @@ interface ImageState {
   previewUrl: string;
 }
 
-interface CoffeeLogFormState {
+type ScoreTitle = keyof typeof COFFEE_SCORE_TITLE;
+type ScoreValues = {
+  [key in ScoreTitle]: number;
+};
+
+interface CoffeeLogFormState extends ScoreValues {
   images: ImageState[];
   pushImages: (files: File[]) => void;
   deleteImage: (index: number) => void;
 
-  // TODO: 카카오 위치에 대한 정보 저장 필요
   title: string;
   description: string;
   setTitle: (title: string) => void;
   setDescription: (title: string) => void;
 
-  scores: {
-    flavor: 0;
-    sweetness: 0;
-    acidity: 0;
-    balance: 0;
-    overall: 0;
-  };
-  setScore: (key: keyof typeof COFFEE_SCORE_TITLE, value: number) => void;
+  setScore: (key: ScoreTitle, value: number) => void;
+  getScore: (key: ScoreTitle) => number;
 }
 
 export const useCoffeeLogForm = create<CoffeeLogFormState>((set, get) => ({
@@ -46,19 +44,15 @@ export const useCoffeeLogForm = create<CoffeeLogFormState>((set, get) => ({
   setTitle: (title) => set({ title }),
   setDescription: (description) => set({ description }),
 
-  scores: {
-    flavor: 0,
-    sweetness: 0,
-    acidity: 0,
-    balance: 0,
-    overall: 0,
+  flavor: 0,
+  sweetness: 0,
+  acidity: 0,
+  balance: 0,
+  overall: 0,
+  setScore: (key, value) => {
+    set((state) => ({ ...state, [key]: value }));
   },
-  setScore: (key: keyof typeof COFFEE_SCORE_TITLE, value: number) => {
-    set((state) => ({
-      scores: {
-        ...state.scores,
-        [key]: value,
-      },
-    }));
+  getScore: (key: ScoreTitle) => {
+    return get()[key];
   },
 }));

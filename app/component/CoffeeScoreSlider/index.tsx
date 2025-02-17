@@ -1,19 +1,22 @@
-import { useState } from 'react';
-import { styles } from './style.css';
 import clsx from 'clsx';
-import { typography } from 'src/vanilla-extract/typography.css';
 import { COFFEE_SCORE_TITLE } from 'src/constants';
+import { useCoffeeLogForm } from 'src/store/useCoffeeLogForm';
+import { typography } from 'src/vanilla-extract/typography.css';
+import { useShallow } from 'zustand/shallow';
+import { styles } from './style.css';
 
 interface CoffeeScoreSliderProps {
   title: keyof typeof COFFEE_SCORE_TITLE;
 }
 
 export default function CoffeeScoreSlider({ title }: CoffeeScoreSliderProps) {
-  const [score, setScore] = useState(5);
+  const { setScore, score } = useCoffeeLogForm(
+    useShallow((state) => ({ setScore: state.setScore, score: state.getScore(title) }))
+  );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value);
-    setScore(value);
+    setScore(title, value);
   };
 
   return (
