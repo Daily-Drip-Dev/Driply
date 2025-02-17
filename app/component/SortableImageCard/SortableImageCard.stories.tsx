@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import RemovableImageCard from '.';
+import SortableImageCard from '.';
 
-const meta: Meta<typeof RemovableImageCard> = {
-  title: 'Components/RemovableImageCard',
-  component: RemovableImageCard,
+const meta: Meta<typeof SortableImageCard> = {
+  title: 'Components/SortableImageCard',
+  component: SortableImageCard,
   parameters: {
     docs: {
       description: {
-        component: '이미지를 표시하고 제거할 수 있는 카드 컴포넌트입니다.',
+        component: '이미지를 표시하고 제거할 수 있는 카드 컴포넌트입니다. dnd kit의 useSortable을 사용합니다.',
       },
     },
   },
