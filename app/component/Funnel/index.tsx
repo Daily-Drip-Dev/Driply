@@ -7,14 +7,13 @@ import Button from '../Button';
 
 interface FunnelProps {
   children: React.ReactNode;
-  initialStep: string;
   steps: string[];
   onSubmit: (data: unknown) => void;
   title: string;
 }
 
-export function Funnel({ children, initialStep, steps, onSubmit, title }: FunnelProps) {
-  const { currentStep, isFirstStep, isLastStep, moveToPrevStep, moveToNextStep } = useFunnel(initialStep, steps);
+export function Funnel({ children, steps, onSubmit, title }: FunnelProps) {
+  const { currentStep, isFirstStep, isLastStep, moveToPrevStep, moveToNextStep } = useFunnel(steps[0], steps);
 
   const navigate = useNavigate();
   const moveToPrevPage = () => {
