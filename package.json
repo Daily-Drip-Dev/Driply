@@ -25,6 +25,7 @@
     "@supabase/auth-ui-shared": "^0.1.8",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.47.5",
+    "browser-image-compression": "^2.0.2",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "graphql": "^16.9.0",
