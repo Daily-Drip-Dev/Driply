@@ -8,7 +8,7 @@ function isScoreTitle(key: string): key is ScoreTitle {
   return key in COFFEE_SCORE_TITLE;
 }
 
-export default function CoffeeScore() {
+export default function CoffeeScoreStep() {
   return (
     <div className={styles.container}>
       {Object.keys(COFFEE_SCORE_TITLE).map((title) => {

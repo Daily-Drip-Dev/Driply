@@ -1,6 +1,6 @@
 import styles from './styles.css';
 import { Funnel } from '~/component/Funnel';
-import CoffeeScore from '~/component/CoffeeScore';
+import CoffeeScoreStep from '~/component/CoffeeScoreStep';
 
 export default function LogCreateLayout() {
   const handleSubmit = (data: unknown) => {
@@ -11,7 +11,7 @@ export default function LogCreateLayout() {
     <div className={styles.container}>
       <Funnel title="새 기록 작성" steps={['score', 'meta']} onSubmit={handleSubmit}>
         <Funnel.Step name="score">
-          <CoffeeScore />
+          <CoffeeScoreStep />
         </Funnel.Step>
         <Funnel.Step name="meta">meta</Funnel.Step>
       </Funnel>
