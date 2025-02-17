@@ -9,9 +9,9 @@ export default function LogCreateLayout() {
 
   return (
     <div className={styles.container}>
-        <Funnel.Step name="score">score</Funnel.Step>
       <Funnel title="새 기록 작성" steps={['score', 'meta']} onSubmit={handleSubmit}>
         <Funnel.Step name="score">
+          <CoffeeScore />
         </Funnel.Step>
         <Funnel.Step name="meta">meta</Funnel.Step>
       </Funnel>
