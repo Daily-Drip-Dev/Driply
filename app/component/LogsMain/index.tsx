@@ -4,12 +4,13 @@ import Fallback from '../Fallback';
 import LogPreview from '../LogPreview';
 import styles from './styles.css';
 
-import { useLoaderData } from '@remix-run/react';
-import { loader } from '~/routes/logs';
+import { useLoaderData, useNavigate } from '@remix-run/react';
+import { loader } from '~/routes/logs._index';
 
 export default function LogsMain() {
   const { coffeeCollection } = useLoaderData<typeof loader>();
   const coffeeList = coffeeCollection.edges.map(({ node }) => node);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -18,7 +19,7 @@ export default function LogsMain() {
           <Fallback
             buttonText="+새 기록 작성하기"
             onClick={() => {
-              //TODO: create 페이지로 이동합니다.
+              navigate('/logs/create');
             }}
           >
             <div className={clsx(styles.fallback_content, typography.heading4)}>
