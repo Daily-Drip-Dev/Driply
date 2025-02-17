@@ -1,23 +1,25 @@
 import { COFFEE_SCORE_TITLE } from 'src/constants';
 import { create } from 'zustand';
 
+type ScoreTitle = keyof typeof COFFEE_SCORE_TITLE;
+type ScoreStepValues = {
+  [key in ScoreTitle]: number;
+};
+
 interface ImageState {
   file: File;
   previewUrl: string;
 }
-
-type ScoreTitle = keyof typeof COFFEE_SCORE_TITLE;
-type ScoreValues = {
-  [key in ScoreTitle]: number;
+type MetaStepValues = {
+  images: ImageState[];
+  title: string;
+  description: string;
 };
 
-interface CoffeeLogFormState extends ScoreValues {
-  images: ImageState[];
+interface CoffeeLogFormState extends ScoreStepValues, MetaStepValues {
   pushImages: (files: File[]) => void;
   deleteImage: (index: number) => void;
 
-  title: string;
-  description: string;
   setTitle: (title: string) => void;
   setDescription: (title: string) => void;
 
