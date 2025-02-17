@@ -2,8 +2,9 @@ import React from 'react';
 import { useFunnel } from './useFunnel';
 import { useNavigate } from '@remix-run/react';
 import ActionHeader from '../ActionHeader';
-import styles from './styles.css';
 import Button from '../Button';
+import styles from './styles.css';
+import { typography } from 'src/vanilla-extract/typography.css';
 
 interface FunnelProps {
   children: React.ReactNode;
@@ -25,7 +26,9 @@ export function Funnel({ children, steps, onSubmit, title }: FunnelProps) {
   return (
     <>
       <ActionHeader onBack={isFirstStep ? moveToPrevPage : moveToPrevStep}>
-        <ActionHeader.CenterContent>{title}</ActionHeader.CenterContent>
+        <ActionHeader.CenterContent>
+          <h1 className={typography.heading3}>{title}</h1>
+        </ActionHeader.CenterContent>
       </ActionHeader>
       {React.Children.map(children, (child) =>
         React.isValidElement(child) && child.props.name === currentStep ? child : null
