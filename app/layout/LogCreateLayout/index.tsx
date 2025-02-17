@@ -1,6 +1,7 @@
 import styles from './styles.css';
 import { Funnel } from '~/component/Funnel';
 import CoffeeScoreStep from '~/component/CoffeeScoreStep';
+import CoffeeMetaStep from '~/component/CoffeeMetaStep';
 
 export default function LogCreateLayout() {
   const handleSubmit = (data: unknown) => {
@@ -13,7 +14,9 @@ export default function LogCreateLayout() {
         <Funnel.Step name="score">
           <CoffeeScoreStep />
         </Funnel.Step>
-        <Funnel.Step name="meta">meta</Funnel.Step>
+        <Funnel.Step name="meta">
+          <CoffeeMetaStep />
+        </Funnel.Step>
       </Funnel>
     </div>
   );
