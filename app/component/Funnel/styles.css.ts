@@ -5,6 +5,7 @@ const stepContainer = style({
   flexDirection: 'column',
   height: '100%',
   padding: '0 32px',
+  overflow: 'auto',
 });
 
 const buttonContainer = style({
