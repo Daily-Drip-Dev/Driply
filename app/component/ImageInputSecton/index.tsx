@@ -1,12 +1,13 @@
-import styles from './styles.css';
-import { useCoffeeLogForm } from 'src/store/useCoffeeLogForm';
-import ImageUploader from '../ImageUploader';
-import SortableImageCard from '../SortableImageCard';
 import { ChangeEvent } from 'react';
+import { CSS } from '@dnd-kit/utilities';
 import { DndContext, type DragMoveEvent } from '@dnd-kit/core';
 import { horizontalListSortingStrategy, SortableContext, useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 import imageCompression from 'browser-image-compression';
+
+import styles from './styles.css';
+import ImageUploader from '../ImageUploader';
+import SortableImageCard from '../SortableImageCard';
+import { useCoffeeLogForm } from 'src/store/useCoffeeLogForm';
 
 const MAX_IMAGE_COUNT = 3;
 
