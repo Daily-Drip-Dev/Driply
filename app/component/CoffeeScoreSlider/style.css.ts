@@ -8,7 +8,8 @@ const scoreDialContainer = style({
   alignItems: 'center',
   borderRadius: '8px',
   textAlign: 'center',
-  width: '300px',
+  width: '100%',
+  minWidth: '300px',
 });
 
 const labelContainer = style({

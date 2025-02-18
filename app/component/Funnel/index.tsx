@@ -11,9 +11,10 @@ interface FunnelProps {
   steps: string[];
   onSubmit: (data: unknown) => void;
   title: string;
+  isFormValid?: boolean;
 }
 
-export function Funnel({ children, steps, onSubmit, title }: FunnelProps) {
+export function Funnel({ children, steps, onSubmit, title, isFormValid = true }: FunnelProps) {
   const { currentStep, isFirstStep, isLastStep, moveToPrevStep, moveToNextStep } = useFunnel(steps[0], steps);
 
   const navigate = useNavigate();
@@ -34,7 +35,11 @@ export function Funnel({ children, steps, onSubmit, title }: FunnelProps) {
         React.isValidElement(child) && child.props.name === currentStep ? child : null
       )}
       <div className={styles.buttonContainer}>
-        <Button onClick={isLastStep ? onSubmit : moveToNextStep} className={styles.button} disabled={isLastStep}>
+        <Button
+          onClick={isLastStep ? onSubmit : moveToNextStep}
+          className={styles.button}
+          disabled={(isLastStep && !isFormValid) || !isFormValid}
+        >
           {isLastStep ? '완료' : '다음'}
         </Button>
       </div>

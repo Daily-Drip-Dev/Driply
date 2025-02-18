@@ -1,12 +1,11 @@
-import { arrayMove } from '@dnd-kit/sortable';
 import { COFFEE_SCORE_TITLE } from 'src/constants';
 import { create } from 'zustand';
+import { arrayMove } from '@dnd-kit/sortable';
 
 type ScoreTitle = keyof typeof COFFEE_SCORE_TITLE;
 type ScoreStepValues = {
   [key in ScoreTitle]: number;
 };
-
 interface ImageState {
   id: string;
   file: File;
