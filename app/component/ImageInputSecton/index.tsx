@@ -21,9 +21,9 @@ export default function ImageInputSection() {
       if (file.size > 1 * 1024 * 1024) {
         const options = {
           maxSizeMB: 1,
-          maxWidthOrHeight: 2400,
-          useWebWorker: true,
+          maxWidthOrHeight: 1920,
           initialQuality: 0.8,
+          fileType: 'image/webp',
         };
 
         try {
