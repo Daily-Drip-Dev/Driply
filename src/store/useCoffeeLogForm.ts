@@ -44,6 +44,7 @@ export const useCoffeeLogForm = create<CoffeeLogFormState>((set, get) => ({
   },
   deleteImage: (index) => {
     const curImages = get().images;
+    URL.revokeObjectURL(curImages[index].previewUrl);
     set({ images: [...curImages.slice(0, index), ...curImages.slice(index + 1)] });
   },
   switchImageOrder: (currentId, targetId) => {
