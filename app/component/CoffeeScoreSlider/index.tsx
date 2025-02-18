@@ -1,33 +1,29 @@
-import { useState } from 'react';
-import { styles } from './style.css';
 import clsx from 'clsx';
+import { COFFEE_SCORE_TITLE } from 'src/constants';
+import { useCoffeeLogForm } from 'src/store/useCoffeeLogForm';
 import { typography } from 'src/vanilla-extract/typography.css';
+import { useShallow } from 'zustand/shallow';
+import { styles } from './style.css';
 
 interface CoffeeScoreSliderProps {
-  title: 'flavor' | 'sweetness' | 'acidity' | 'balance' | 'overall';
+  title: keyof typeof COFFEE_SCORE_TITLE;
 }
 
-const TITLE = {
-  flavor: '향미',
-  sweetness: '단맛',
-  acidity: '산미',
-  balance: '밸런스',
-  overall: '종합',
-};
-
 export default function CoffeeScoreSlider({ title }: CoffeeScoreSliderProps) {
-  const [score, setScore] = useState(5);
+  const { setScore, score } = useCoffeeLogForm(
+    useShallow((state) => ({ setScore: state.setScore, score: state.getScore(title) }))
+  );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value);
-    setScore(value);
+    setScore(title, value);
   };
 
   return (
     <section className={styles.scoreDialContainer} aria-label="점수 선택기">
       <div className={styles.labelContainer}>
         <label htmlFor={title} className={typography.heading2}>
-          {TITLE[title]}
+          {COFFEE_SCORE_TITLE[title]}
         </label>
         <span className={clsx(styles.labelDescription, typography.small)}>
           {title[0].toUpperCase() + title.slice(1)}

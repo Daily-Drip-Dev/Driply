@@ -1,23 +1,33 @@
 import { arrayMove } from '@dnd-kit/sortable';
+import { COFFEE_SCORE_TITLE } from 'src/constants';
 import { create } from 'zustand';
+
+type ScoreTitle = keyof typeof COFFEE_SCORE_TITLE;
+type ScoreStepValues = {
+  [key in ScoreTitle]: number;
+};
 
 interface ImageState {
   id: string;
   file: File;
   previewUrl: string;
 }
-
-interface CoffeeLogFormState {
+type MetaStepValues = {
   images: ImageState[];
+  title: string;
+  description: string;
+};
+
+interface CoffeeLogFormState extends ScoreStepValues, MetaStepValues {
   pushImages: (files: File[]) => void;
   deleteImage: (index: number) => void;
   switchImageOrder: (currentId: string, targetId: string) => void;
 
-  // TODO: 카카오 위치에 대한 정보 저장 필요
-  title: string;
-  description: string;
   setTitle: (title: string) => void;
   setDescription: (title: string) => void;
+
+  setScore: (key: ScoreTitle, value: number) => void;
+  getScore: (key: ScoreTitle) => number;
 }
 
 export const useCoffeeLogForm = create<CoffeeLogFormState>((set, get) => ({
@@ -52,4 +62,16 @@ export const useCoffeeLogForm = create<CoffeeLogFormState>((set, get) => ({
   description: '',
   setTitle: (title) => set({ title }),
   setDescription: (description) => set({ description }),
+
+  flavor: 0,
+  sweetness: 0,
+  acidity: 0,
+  balance: 0,
+  overall: 0,
+  setScore: (key, value) => {
+    set((state) => ({ ...state, [key]: value }));
+  },
+  getScore: (key: ScoreTitle) => {
+    return get()[key];
+  },
 }));
