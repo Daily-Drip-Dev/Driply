@@ -1,7 +1,7 @@
-import CoffeeMetaStep from '~/component/CoffeeMetaStep';
-import CoffeeScoreStep from '~/component/CoffeeScoreStep';
-import { Funnel } from '~/component/Funnel';
 import styles from './styles.css';
+import { Funnel } from '~/component/Funnel';
+import CoffeeScoreStep from '~/component/CoffeeScoreStep';
+import CoffeeMetaStep from '~/component/CoffeeMetaStep';
 
 export default function LogCreateLayout() {
   const handleSubmit = (data: unknown) => {
